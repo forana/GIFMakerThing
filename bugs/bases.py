@@ -88,5 +88,33 @@ mapping = {
             None,
             None
         ]
+    },
+    "deathstar": {
+        "file": "deathstar.gif",
+        "delay": 0.1,
+        "directions": [
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            ((80,80), (79, 117), 0),
+            ((80,80), (79, 117), 0),
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None,
+            None
+        ]
     }
 }
