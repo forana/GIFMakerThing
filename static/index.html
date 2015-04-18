@@ -1,12 +1,26 @@
 <html>
-<body>
-    <form method="post" action="/image" target="image" enctype="multipart/form-data">
-        <input type="file" name="file" placeholder="Gimme an image" />
-        <select name="base">
-            <option selected>bugs</option>
-            <option>50</option>
-        </select>
-        <button type="submit">Take it away</button>
-    </form>
-    <iframe name="image" width="640" height="480"></iframe>
-</body>
+    <head>
+        <title>Generate GIFs</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css" />
+    </head>
+    <body>
+        <h2>Upload an Image</h2>
+        <form method="post" action="/image" target="image" enctype="multipart/form-data">
+            <table>
+                <tr><td>Image</td><td><input type="file" name="file" placeholder="Gimme an image" /></td></tr>
+                <tr><td>GIF Template</td><td>
+                    <select name="base">
+                        <option selected value="bugs">Bugs Bunny cutting off florida</option>
+                        <option value="50">50 Cent - laugh and drive</option>
+                    </select>
+                </td></tr>
+                <tr><td colspan="2">
+                    <button type="submit" name="action" value="show">Show Me</button>
+                    <button type="submit" name="action" value="download">Download</button>
+                </td></tr>
+            </table>
+        </form>
+        <h2>Preview</h2>
+        <iframe name="image" width="640" height="480"></iframe>
+    </body>
+</html>

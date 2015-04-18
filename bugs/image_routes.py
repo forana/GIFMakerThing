@@ -18,6 +18,7 @@ def new_image():
     upload = Image.open(buffer).convert(mode = "RGBA")
 
     base = bases[request.forms.get("base")]
+    action = request.forms.get("action")
 
     print base
 
@@ -34,7 +35,7 @@ def new_image():
             rotation = direction[2]
             scaled_size = choose_scale_rect(size, upload.size)
             print size, scaled_size, upload.size
-            transformed = upload.resize(scaled_size).rotate(rotation, Image.BILINEAR, True)
+            transformed = upload.resize(scaled_size).rotate(rotation, Image.BICUBIC, True)
             frame.paste(transformed, corner, transformed)
 
     tf = tempfile.NamedTemporaryFile(delete = False)
@@ -49,6 +50,9 @@ def new_image():
     os.remove(filename)
 
     response.content_type = "image/gif"
+
+    if action == "download":
+        response.headers["content-disposition"] = "attachment;filename=download.gif"
     return contents
 
 def choose_scale_rect(target_size, image_size):
